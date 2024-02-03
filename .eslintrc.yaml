@@ -1,0 +1,121 @@
+root: true
+
+env:
+  browser: true
+  es2020: true
+  node: true
+  jest: true
+
+globals:
+  JSX: true
+
+extends:
+  - 'eslint:recommended'
+  - 'plugin:@typescript-eslint/recommended'
+  - 'plugin:react-hooks/recommended'
+  - 'plugin:tailwindcss/recommended'
+  - airbnb
+
+plugins:
+  - react-refresh
+
+settings:
+  import/resolver:
+    node:
+      moduleDirectory:
+        - ./node_modules
+        - ./src
+      extensions:
+        - .js
+        - .ts
+        - .jsx
+        - .tsx
+
+parser: '@typescript-eslint/parser'
+parserOptions:
+  sourceType: module
+  ecmaVersion: 12
+  ecmaFeatures:
+    jsx: true
+
+rules:
+  # Simple rules.
+  arrow-body-style: off
+  arrow-parens: off
+  comma-dangle: off
+  dot-notation: off
+  import/extensions: off
+  import/no-absolute-path: off
+  import/no-extraneous-dependencies: off
+  import/no-named-as-default: off
+  import/prefer-default-export: off
+  max-classes-per-file: off
+  no-bitwise: off
+  no-empty-function: off
+  no-nested-ternary: off
+  no-plusplus: off
+  no-restricted-exports: off
+  no-shadow: off
+  no-unused-vars: off
+  no-use-before-define: off
+  no-useless-constructor: off
+  prefer-destructuring: off
+  semi: off
+  radix: off
+  react/destructuring-assignment: off
+  react/function-component-definition: off
+  react/jsx-props-no-spreading: off
+  react/prop-types: off
+  react/react-in-jsx-scope: off
+  react/require-default-props: off
+  '@typescript-eslint/no-shadow': error
+
+  # Complex rules.
+  import/order:
+    - error
+    - groups:
+        - builtin
+        - external
+        - internal
+      newlines-between: always-and-inside-groups
+
+  jsx-a11y/label-has-associated-control:
+    - error
+    - required:
+        some:
+          - nesting
+          - id
+
+  jsx-a11y/label-has-for:
+    - error
+    - required:
+        some:
+          - nesting
+          - id
+
+  jsx-quotes:
+    - error
+    - prefer-single
+
+  no-param-reassign:
+    - error
+    - props: false
+  
+  object-curly-newline:
+    - error
+    - ImportDeclaration:
+        multiline: true
+      ExportDeclaration:
+        multiline: true
+  
+  react/jsx-filename-extension:
+    - error
+    - extensions:
+        - .js
+        - .jsx
+        - .ts
+        - tsx
+
+  '@typescript-eslint/semi':
+    - error
+    - never
