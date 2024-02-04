@@ -10,11 +10,17 @@ globals:
   JSX: true
 
 extends:
+  # Code quality rules handled by ESLint.
   - 'eslint:recommended'
   - 'plugin:@typescript-eslint/recommended'
+  - 'plugin:react/recommended'
   - 'plugin:react-hooks/recommended'
   - 'plugin:tailwindcss/recommended'
   - airbnb
+
+  # Formatting rules must be handled by Prettier.
+  # Override ESLint formatting rules to prevent the linter from formatting.
+  - prettier
 
 plugins:
   - react-refresh
@@ -41,8 +47,6 @@ parserOptions:
 rules:
   # Simple rules.
   arrow-body-style: off
-  arrow-parens: off
-  comma-dangle: off
   dot-notation: off
   import/extensions: off
   import/no-absolute-path: off
@@ -60,7 +64,6 @@ rules:
   no-use-before-define: off
   no-useless-constructor: off
   prefer-destructuring: off
-  semi: off
   radix: off
   react/destructuring-assignment: off
   react/function-component-definition: off
@@ -93,21 +96,10 @@ rules:
           - nesting
           - id
 
-  jsx-quotes:
-    - error
-    - prefer-single
-
   no-param-reassign:
     - error
     - props: false
-  
-  object-curly-newline:
-    - error
-    - ImportDeclaration:
-        multiline: true
-      ExportDeclaration:
-        multiline: true
-  
+
   react/jsx-filename-extension:
     - error
     - extensions:
@@ -115,7 +107,3 @@ rules:
         - .jsx
         - .ts
         - tsx
-
-  '@typescript-eslint/semi':
-    - error
-    - never
