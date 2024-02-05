@@ -1,6 +1,7 @@
 import path from 'node:path'
 
 import { defineConfig } from 'vite'
+import tsconfigPaths from 'vite-tsconfig-paths'
 
 // eslint-disable-next-line import/no-unresolved
 import electron from 'vite-plugin-electron/simple'
@@ -18,5 +19,6 @@ export default defineConfig({
       },
       renderer: {},
     }),
+    tsconfigPaths(),
   ],
 })
