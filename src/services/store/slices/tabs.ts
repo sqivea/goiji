@@ -1,7 +1,12 @@
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { createSlice } from '@reduxjs/toolkit'
 
-type TabName = 'TAB_ADD_NEW' | 'TAB_SEARCH'
+export const TabNames = {
+  TAB_ADD_NEW: 'TAB_ADD_NEW',
+  TAB_SEARCH: 'TAB_SEARCH',
+} as const
+
+export type TabName = (typeof TabNames)[keyof typeof TabNames]
 
 interface TabsState {
   selectedTab: TabName
@@ -20,5 +25,7 @@ const tabsSlice = createSlice({
     },
   },
 })
+
+export const { switchToTab } = tabsSlice.actions
 
 export default tabsSlice.reducer
