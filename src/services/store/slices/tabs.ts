@@ -1,12 +1,12 @@
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { createSlice } from '@reduxjs/toolkit'
 
-export const TabNames = {
+export const tabNames = {
   TAB_ADD_NEW: 'TAB_ADD_NEW',
   TAB_SEARCH: 'TAB_SEARCH',
 } as const
 
-export type TabName = (typeof TabNames)[keyof typeof TabNames]
+export type TabName = (typeof tabNames)[keyof typeof tabNames]
 
 interface TabsState {
   selectedTab: TabName

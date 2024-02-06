@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import Grid from 'components/Grid'
 import Tab from 'components/Tab'
 import { RootState } from 'services/store'
-import { TabNames, switchToTab } from 'services/store/slices/tabs'
+import { tabNames, switchToTab } from 'services/store/slices/tabs'
 
 function App() {
   const selectedTab = useSelector((state: RootState) => state.tabs.selectedTab)
@@ -12,17 +12,17 @@ function App() {
   return (
     <Grid>
       <Tab
-        isSelected={selectedTab === TabNames.TAB_ADD_NEW}
+        isSelected={selectedTab === tabNames.TAB_ADD_NEW}
         callback={() => {
-          dispatch(switchToTab(TabNames.TAB_ADD_NEW))
+          dispatch(switchToTab(tabNames.TAB_ADD_NEW))
         }}
       >
         Add new
       </Tab>
       <Tab
-        isSelected={selectedTab === TabNames.TAB_SEARCH}
+        isSelected={selectedTab === tabNames.TAB_SEARCH}
         callback={() => {
-          dispatch(switchToTab(TabNames.TAB_SEARCH))
+          dispatch(switchToTab(tabNames.TAB_SEARCH))
         }}
       >
         Search
