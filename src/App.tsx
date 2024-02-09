@@ -4,6 +4,7 @@ import Grid from 'components/Grid'
 import Tab from 'components/Tab'
 import { RootState } from 'services/store'
 import { tabNames, switchToTab } from 'services/store/slices/tabs'
+import Button from 'components/Button'
 
 function App() {
   const selectedTab = useSelector((state: RootState) => state.tabs.selectedTab)
@@ -27,7 +28,9 @@ function App() {
       >
         Search
       </Tab>
-      <div className="border" />
+      <div className="border">
+        <Button variant="outline">Click me</Button>
+      </div>
       <div className="border" />
     </Grid>
   )
