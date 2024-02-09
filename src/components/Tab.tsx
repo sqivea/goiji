@@ -1,6 +1,6 @@
 import { KeyboardEvent } from 'react'
 
-import cn from 'services/cn'
+import { cn } from 'services/utils'
 
 interface Props {
   isSelected?: boolean
