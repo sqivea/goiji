@@ -1,38 +1,17 @@
-import { useSelector, useDispatch } from 'react-redux'
-
-import Grid from 'components/Grid'
-import Tab from 'components/Tab'
-import { RootState } from 'services/store'
-import { tabNames, switchToTab } from 'services/store/slices/tabs'
-import Button from 'components/Button'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from 'components/Tabs'
 
 function App() {
-  const selectedTab = useSelector((state: RootState) => state.tabs.selectedTab)
-  const dispatch = useDispatch()
-
   return (
-    <Grid>
-      <Tab
-        isSelected={selectedTab === tabNames.TAB_ADD_NEW}
-        callback={() => {
-          dispatch(switchToTab(tabNames.TAB_ADD_NEW))
-        }}
-      >
-        Add new
-      </Tab>
-      <Tab
-        isSelected={selectedTab === tabNames.TAB_SEARCH}
-        callback={() => {
-          dispatch(switchToTab(tabNames.TAB_SEARCH))
-        }}
-      >
-        Search
-      </Tab>
-      <div className="border">
-        <Button variant="outline">Click me</Button>
-      </div>
-      <div className="border" />
-    </Grid>
+    <main className="flex size-full justify-center pt-[clamp(1rem,20vh,100px)]">
+      <Tabs defaultValue="add-new">
+        <TabsList>
+          <TabsTrigger value="add-new">Add new</TabsTrigger>
+          <TabsTrigger value="search">Search</TabsTrigger>
+        </TabsList>
+        <TabsContent value="add-new">Add new</TabsContent>
+        <TabsContent value="search">Search</TabsContent>
+      </Tabs>
+    </main>
   )
 }
 
